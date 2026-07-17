@@ -13,3 +13,5 @@ Egyszeru, mobilra optimalizalt Tetris jatek.
 ## Inditas
 
 Nyisd meg az `index.html` fajlt bongeszoben.
+
+GitHub Pages deploy trigger.

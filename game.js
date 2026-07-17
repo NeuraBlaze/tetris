@@ -259,9 +259,9 @@ function draw() {
 }
 
 function drawBoardBackground() {
-  boardContext.fillStyle = "#080d19";
+  boardContext.fillStyle = "#f4fbf8";
   boardContext.fillRect(0, 0, boardCanvas.width, boardCanvas.height);
-  boardContext.strokeStyle = "#263149";
+  boardContext.strokeStyle = "#cbd8d4";
   boardContext.lineWidth = 1;
 
   for (let x = 0; x <= COLS; x += 1) {
@@ -310,7 +310,7 @@ function drawBlock(context, x, y, blockSize, color) {
 
 function drawNext() {
   nextContext.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
-  nextContext.fillStyle = "#0c1222";
+  nextContext.fillStyle = "#f4fbf8";
   nextContext.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
 
   const blockSize = 20;

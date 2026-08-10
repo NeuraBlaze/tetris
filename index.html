@@ -3,54 +3,52 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#00a783">
-    <title>Klasszikus Tetris</title>
+    <meta name="theme-color" content="#087f67">
+    <title>Mozaikzápor</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="app" aria-label="Klasszikus Tetris játék">
+    <main class="app" aria-label="Mozaikzápor játék">
       <section class="game-shell">
         <header class="topbar">
           <div>
             <p class="eyebrow">Játékok</p>
-            <h1>Tetris</h1>
+            <h1>Mozaikzápor</h1>
           </div>
-          <button class="icon-button" id="pauseButton" type="button" aria-label="Szünet">II</button>
+          <button class="icon-button" id="pauseButton" type="button" aria-label="Szünet">Ⅱ</button>
         </header>
 
         <section class="status-row" aria-label="Játék állása">
-          <div class="stat">
-            <span>Pont</span>
-            <strong id="score">0</strong>
-          </div>
-          <div class="stat">
-            <span>Rekord</span>
-            <strong id="bestScore">0</strong>
-          </div>
-          <div class="stat">
-            <span>Szint</span>
-            <strong id="level">1</strong>
-          </div>
-          <div class="stat">
-            <span>Sor</span>
-            <strong id="lines">0</strong>
-          </div>
+          <div class="stat"><span>Pont</span><strong id="score">0</strong></div>
+          <div class="stat"><span>Rekord</span><strong id="bestScore">0</strong></div>
+          <div class="stat"><span>Szint</span><strong id="level">1</strong></div>
+          <div class="stat combo-stat"><span>Kombó</span><strong id="combo">×1</strong></div>
+        </section>
+
+        <section class="mission" aria-label="Játékszabály">
+          <span class="mission-icon" aria-hidden="true">▦</span>
+          <p>Tölts ki egy teljes <strong>3×3-as zónát</strong>, hogy eltűnjön!</p>
         </section>
 
         <section class="play-area">
           <div class="board-wrap">
-            <canvas id="board" width="300" height="600" aria-label="Tetris pálya"></canvas>
-            <div class="overlay hidden" id="overlay">
-              <h2 id="overlayTitle">Tetris</h2>
-              <p id="overlayText">Nyomj indítást.</p>
+            <canvas id="board" width="360" height="480" aria-label="9-szer 12 mezős mozaikpálya"></canvas>
+            <div class="combo-pop hidden" id="comboPop" aria-live="polite"></div>
+            <div class="overlay" id="overlay">
+              <h2 id="overlayTitle">Mozaikzápor</h2>
+              <p id="overlayText">Rakj ki 3×3-as zónákat, és indíts láncreakciókat!</p>
               <button id="startButton" type="button">Indítás</button>
             </div>
           </div>
 
-          <aside class="side-panel" aria-label="Következő elem és vezérlés">
+          <aside class="side-panel" aria-label="Következő mozaik és vezérlés">
             <div class="next-box">
               <span>Következő</span>
-              <canvas id="next" width="96" height="96" aria-label="Következő tetris elem"></canvas>
+              <canvas id="next" width="108" height="108" aria-label="Következő mozaikdarab"></canvas>
+            </div>
+            <div class="zone-box">
+              <span>Zónák</span>
+              <strong id="zones">0</strong>
             </div>
             <button class="primary-button" id="restartButton" type="button">Új játék</button>
           </aside>
@@ -60,11 +58,12 @@
           <button class="control-button" id="leftButton" type="button" aria-label="Balra">←</button>
           <button class="control-button" id="rotateButton" type="button" aria-label="Forgatás">↻</button>
           <button class="control-button" id="rightButton" type="button" aria-label="Jobbra">→</button>
-          <button class="control-button accent" id="dropButton" type="button" aria-label="Leejtés">↓</button>
+          <button class="control-button accent" id="dropButton" type="button" aria-label="Azonnali leejtés">⇣</button>
         </section>
       </section>
     </main>
 
+    <script src="game-core.js"></script>
     <script src="game.js"></script>
   </body>
 </html>
